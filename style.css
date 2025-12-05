@@ -420,7 +420,7 @@ body::before {
 /* Responsive */
 @media (max-width: 768px) {
   .content {
-    padding: 40px 25px;
+    padding: 30px 20px;
     border-radius: 20px;
     width: 92%;
     margin: 15px;
@@ -466,37 +466,43 @@ body::before {
 
 @media (max-width: 480px) {
   .content {
-    padding: 30px 20px;
+    padding: 20px 18px;
     width: 90%;
     margin: 10px;
     border-radius: 15px;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 0.5px;
+    margin-bottom: 6px;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
   }
 
   .message {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 8px 0;
   }
 
   .message-box {
     padding: 15px;
+    margin: 15px 0;
   }
 
   .interactive-section {
     flex-direction: column;
     gap: 10px;
+    margin: 20px 0 15px 0;
   }
 
   .btn {
     width: 100%;
-    padding: 14px 20px;
+    padding: 12px 20px;
   }
 
   .modal-content {
@@ -518,7 +524,8 @@ body::before {
   }
 
   .floating-hearts {
-    margin-top: 30px;
+    margin-top: 20px;
+    height: 40px;
   }
 
   .float-heart {
