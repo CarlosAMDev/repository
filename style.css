@@ -6,8 +6,9 @@
 
 html, body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -15,10 +16,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
   position: relative;
 }
 
@@ -38,28 +37,32 @@ body::before {
 
 .container {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
+  align-items: flex-start;
+  padding: 3vh 4vw;
   position: relative;
 }
 
 .content {
-  max-width: 550px;
-  width: 95%;
+  max-width: min(560px, 92vw);
+  width: 100%;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   border-radius: 24px;
-  padding: 35px 30px;
+  padding: clamp(24px, 4vh, 40px) clamp(20px, 5vw, 36px);
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   position: relative;
   z-index: 10;
   animation: slideIn 0.8s ease-out;
-  margin: 20px;
+  margin: clamp(16px, 3vh, 32px) auto;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
 @keyframes slideIn {
@@ -157,16 +160,15 @@ body::before {
 }
 
 .title {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 8px;
+  margin-bottom: 0.5em;
   font-weight: 700;
   letter-spacing: -1px;
   animation: pulse 2s ease-in-out infinite;
- animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -175,34 +177,33 @@ body::before {
   }
   50% {
     transform: scale(1.05);
+  }
+}
+
 .subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 20px;
+  margin-bottom: 1.5em;
   font-weight: 600;
   letter-spacing: 0.5px;
-} margin-bottom: 20px;
-  font-weight: 500;
-  opacity: 0.9;
-}
 }
 /* Message Box */
 .message-box {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
   border-radius: 12px;
-  padding: 20px 25px;
-  margin: 20px 0;
+  padding: 2vh 4vw;
+  margin: 2vh 0;
   text-align: left;
 }
 
 .message {
-  font-size: 0.98rem;
+  font-size: clamp(0.85rem, 2vw, 0.98rem);
   color: #333;
   line-height: 1.6;
-  margin: 10px 0;
+  margin: 1em 0;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -235,25 +236,25 @@ body::before {
 }
 
 .message.emotional {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   font-weight: 600;
   color: #764ba2;
   text-align: center;
-  margin-top: 12px;
+  margin-top: 1.2em;
 }
 
 /* Buttons */
 .interactive-section {
   display: flex;
-  gap: 12px;
+  gap: 1vw;
   justify-content: center;
-  margin: 25px 0 20px 0;
+  margin: 3vh 0 2vh 0;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 12px 28px;
-  font-size: 0.9rem;
+  padding: 1.2em 2.5em;
+  font-size: clamp(0.85rem, 2vw, 0.9rem);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -296,12 +297,12 @@ body::before {
 
 /* Floating Hearts */
 .floating-hearts {
-  margin-top: 25px;
-  height: 50px;
+  margin-top: 3vh;
+  height: 6vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 8px;
+  gap: 1vw;
 }
 
 .float-heart {
@@ -363,18 +364,20 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
 .modal-content {
   background: white;
-  padding: 35px 40px;
+  padding: 4vh 5vw;
   border-radius: 20px;
   text-align: center;
-  max-width: 480px;
+  max-width: min(480px, 85vw);
   width: 90%;
   animation: popUp 0.4s ease;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-} animation: popUp 0.4s ease;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin: 2vh auto;
+  max-height: 85vh;
+  overflow-y: auto;
 }
 
 @keyframes popUp {
@@ -417,34 +420,36 @@ body::before {
 .close-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
 /* Responsive */
 @media (max-width: 768px) {
   .content {
-    padding: 30px 20px;
-    border-radius: 20px;
-    width: 92%;
-    margin: 15px;
+    padding: clamp(20px, 3vh, 28px) clamp(16px, 4vw, 26px);
+    border-radius: 18px;
+    width: 94%;
+    margin: clamp(12px, 2vh, 20px) auto;
+    max-height: 88vh;
   }
 
   .title {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 5vw, 2.3rem);
   }
 
   .subtitle {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.8vw, 1.05rem);
   }
 
   .message {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 0.98rem);
   }
 
   .message-box {
-    padding: 20px;
+    padding: clamp(14px, 2.4vh, 20px) clamp(14px, 4vw, 22px);
   }
 
   .btn {
-    padding: 12px 25px;
-    font-size: 0.9rem;
+    padding: 0.9em 2.1em;
+    font-size: clamp(0.85rem, 2.3vw, 0.95rem);
   }
 
   .heart {
@@ -452,70 +457,75 @@ body::before {
   }
 
   .modal-content {
-    padding: 35px 25px;
+    padding: clamp(20px, 3vh, 28px) clamp(18px, 5vw, 26px);
+    max-height: 84vh;
+    overflow-y: auto;
   }
 
   .modal-content h2 {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 4.5vw, 1.9rem);
   }
 
   .modal-content p {
-    font-size: 1rem;
+    font-size: clamp(0.92rem, 2.5vw, 1rem);
   }
 }
 
 @media (max-width: 480px) {
   .content {
-    padding: 20px 18px;
-    width: 90%;
-    margin: 10px;
-    border-radius: 15px;
+    padding: clamp(16px, 3vh, 20px) clamp(14px, 5vw, 20px);
+    width: 94%;
+    margin: clamp(10px, 2vh, 16px);
+    border-radius: 14px;
+    max-height: 85vh;
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 6vw, 1.85rem);
     letter-spacing: 0.5px;
     margin-bottom: 6px;
   }
 
   .subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    margin-bottom: 12px;
   }
 
   .message {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 3vw, 0.95rem);
     line-height: 1.5;
-    margin: 8px 0;
+    margin: 6px 0;
   }
 
   .message-box {
-    padding: 15px;
-    margin: 15px 0;
+    padding: clamp(12px, 2.5vh, 16px);
+    margin: 12px 0;
   }
 
   .interactive-section {
     flex-direction: column;
     gap: 10px;
-    margin: 20px 0 15px 0;
+    margin: 14px 0 12px 0;
   }
 
   .btn {
     width: 100%;
-    padding: 12px 20px;
+    padding: 0.9em 1.6em;
   }
 
   .modal-content {
-    padding: 25px 20px;
-    margin: 15px;
+    padding: clamp(16px, 3vh, 22px) clamp(14px, 5vw, 20px);
+    margin: 12px;
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .modal-content h2 {
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
   }
 
   .modal-content p {
-    font-size: 0.95rem;
+    font-size: clamp(0.88rem, 3vw, 0.95rem);
     line-height: 1.6;
   }
 
@@ -524,8 +534,8 @@ body::before {
   }
 
   .floating-hearts {
-    margin-top: 20px;
-    height: 40px;
+    margin-top: 14px;
+    height: 36px;
   }
 
   .float-heart {
